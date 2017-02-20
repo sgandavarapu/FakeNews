@@ -3,7 +3,8 @@ import time
 import os
 import schedule
 
-#Extracts HTML from 34 Fake News sites at 5 PM PST. Run continuously in the background with: $nohup python fakeNews_extractHTML.py &
+#Extracts HTML from 34 Fake News sites at 6 PM. Run continuously in the background with: $nohup python fakeNews_extractHTML.py &
+loc = '' #Set location to build file structure
 
 urls = ['http://70news.wordpress.com',
         'http://activistpost.com',
@@ -50,7 +51,7 @@ def extract_html():
     for url in urls:
         r = requests.get(url)
         source = url.replace('http://','').replace('.com','').replace('.org', '').replace('.us', '').replace('.me', '').replace('.net', '')
-        filename = '/mnt/c/Users/Brennan/Dropbox/MIDS/w210-capstone/data/notCredible/{0}/{1}.html'.format(source, date)
+        filename = '{0}/data/notCredible/{1}/{2}.html'.format(loc, source, date)
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         
         with open(filename, 'w') as f:
