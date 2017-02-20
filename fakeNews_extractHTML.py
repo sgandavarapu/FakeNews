@@ -3,6 +3,8 @@ import time
 import os
 import schedule
 
+#Extracts HTML from 34 Fake News sites at 5 PM PST. Run continuously in the background with: $nohup python fakeNews_extractHTML.py &
+
 urls = ['http://70news.wordpress.com',
         'http://activistpost.com',
         'http://americannews.com',
